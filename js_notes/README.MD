@@ -4,9 +4,9 @@
 ​
 | x | var | let | const |
 | redeclaration | yes | no | no |
-| reassignment | yes | yes | no |
+| reassignment | yes | yes | no | // reinicializacja
 | hoisting | yes | no | no |
-| block scope | no | yes | yes |
+| block scope | no | yes | yes | // var nie jest ograniczony block scope 
 ​
 ### Hoisting
 - moving declarations of var, named function and class to the top of the current scope
@@ -89,6 +89,31 @@ ternary operator = condition ? true : falls
 
 ---
 
+```javascript
+
+function callback(element=1, id=0, array=[1, 2, 3]){
+    return 'New Value'
+}
+
+const newArray = [1, 2, 3].map(callback)
+//[3 x New Value]
+
+// reduce
+const initialValue = 0;
+
+const callback_ = (accumulator=array[0], 
+                   current_element=array[1], 
+                   id=0, array[1, 2, 3]) => {
+    const newAccumulator = accumulator + currentElement;
+    return newAccumulator;
+}
+// accumulator to zawsze array od zera w pierwszym wywołaniu
+// current_element to zawsze array od 1
+
+const newAggregationValue = [1, 2, 3].reduce(callback_, initialValue)
+
+```
+
 #### Copy arrays
 
 ```js
@@ -136,4 +161,5 @@ Array.isArray([]); // true
 2. Promise 
 3, Generators and Coroutines
 4. Async / await (syntactic sugar dla promisów, )
-5. 
+
+
