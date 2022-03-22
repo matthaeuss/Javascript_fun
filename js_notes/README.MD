@@ -9,6 +9,7 @@
 | block scope | no | yes | yes | // var nie jest ograniczony block scope 
 ​
 ### Hoisting
+
 - moving declarations of var, named function and class to the top of the current scope
 ​
 ### Shallow vs Deep Copy (References concept)
@@ -163,3 +164,16 @@ Array.isArray([]); // true
 4. Async / await (syntactic sugar dla promisów, )
 
 
+## Destructurization
+
+```js
+const x = {
+    a: 2,
+    b: {
+        c: 43,
+        d: 666
+    }
+}
+
+let {b, b: {d}} = x
+```

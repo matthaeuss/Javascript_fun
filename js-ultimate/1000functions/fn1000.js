@@ -2367,3 +2367,24 @@ function generateCovers(){
 
 
 // 380
+
+function magic({a, a: {b} = {}} = {}){
+    console.log(a, b)
+}
+
+magic({a: {b: 42}})
+magic()
+
+async function getCurrency(url){
+    const usd = await fetch(`${url}usd?format=json`)
+    const euro = await fetch(`${url}eur?format=json`)
+
+    
+    const json = await Promise.race([usd, euro])
+
+    const data = json.json()
+    return data
+}
+
+getCurrency('https://api.nbp.pl/api/exchangerates/rates/a/').then(e => console.log(e))
+
