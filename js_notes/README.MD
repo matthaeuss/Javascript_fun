@@ -177,3 +177,5 @@ const x = {
 
 let {b, b: {d}} = x
 ```
+
+current w versionowaniu !!!
