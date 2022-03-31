@@ -179,3 +179,23 @@ let {b, b: {d}} = x
 ```
 
 current w versionowaniu !!!
+
+
+## OOP = object oriented programming 
+1. Abstraction
+2. Inheritence (js - prototype chaining)
+3. Polymorphism
+4. Encapsulation (js - only public, ts - all)
+    1.Access modifiers
+        1. private
+        2. protected
+        3. public
+        4. read only
+
+## SOLID
+1. Single responsibility
+2. Open/closed principle
+3. Liskov substitution principle
+4. Interface segregation 
+5. Dependency inversion
+

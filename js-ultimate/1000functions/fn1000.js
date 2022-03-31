@@ -1,3 +1,65 @@
+function sumArray(array) {
+    if (array == null) {
+        return 0;
+    } else if (array.length < 2) {
+        return 0;
+    } else {
+        array = array.sort(function (a, b) { return a - b; });
+        var total = 0;
+        for (var i = 1; i < array.length - 1; i++) {
+            total += array[i];
+        }
+        return total;
+    }
+}
+
+function change(str) {
+    return str.split('').map(charSwap).join('');
+}
+
+function charChange(char) {
+    return char === char.toUpperCase() ? char.toLowerCase() : char.toUpperCase();
+}
+
+
+function p4ngr4m(str) {
+    letters: for (var c = 0; c < 26; c++) {
+        for (var i = 0; i < str.length; i++) {
+            var s = str.charCodeAt(i)
+            if (s < 65 || s > 90 && s < 97 || s > 122) continue
+            if (s === 65 + c || s === 97 + c) continue letters
+        }
+
+        return false
+    }
+
+    return true
+}
+
+function letterCombination(str) {
+    var summO = 0, summX = 0,
+        str = str.toLowerCase(),
+        xoArr = str.match(/[xo]/g);
+    if (xoArr == null) return true;
+    for (var i = 0; i < xoArr.length; i++) {
+        if (xoArr[i] === "x") {
+            summO += 1;
+        } else if (xoArr[i] === "o") {
+            summX += 1;
+        }
+    };
+    if (summO === summX) return true;
+    else return false;
+}
+
+function odd_or_even(number) {
+    if (number % 2 == 0) {
+        return "Even";
+    } else {
+        return "Odd";
+    }
+}
+
 function numbers() {
     const liczba = Number(prompt(`Podaj liczbe:`));
     const imie = prompt(`Podaj imie:`);
@@ -40,8 +102,9 @@ function cases() {
             console.log(`Podano zly znak`);
     }
     console.log(`${liczba_1} ${znak} ${liczba_2} = ${wynik}`);
-
 }
+
+var smallAndBigCharacters = s => ![...s].reduce((t, v) => t + ((v = (v.charCodeAt() - 24) % 32) ? v - 23 ? 0 : -1 : 1), 0)
 
 function trapez() {
     const podstawa_a = 8, podstawa_b = 3, wysokosc = 5;
@@ -61,6 +124,10 @@ function pierwiastekKwadratowy() {
     const liczba = 16;
 
     console.log(`Pierwiastek kwadratowy z liczby ${liczba} wynosi: ${Math.sqrt(liczba)}`);
+}
+
+function checking_even_or_odd(number) {
+    return number % 2 === 0 ? 'Even' : 'Odd';
 }
 
 
@@ -142,6 +209,19 @@ function condition4() {
     console.log(`Wartosc wyrazenia logicznego (5 < 4) || (24 > 26) : ${warunek2}`);
 }
 
+function sumArray20(array) {
+    return Array.isArray(array) && array.length > 1
+        ? array.reduce((s, n) => s + n, 0) - Math.min(...array) - Math.max(...array)
+        : 0
+}
+
+function evenOdd(number) {
+    if (number % 2 === 0)
+        return "Even"
+    else
+        return "Odd"
+}
+
 function numbersNumber() {
     let liczba1 = 15, liczba_2 = 10;
     let temp;
@@ -168,6 +248,8 @@ function length99() {
     console.log(`Resztka sznurka: ${dlugoscSznurka} cm`);
 
 }
+
+const abFunction = str => (str.match(/A/gi) || []).length == (str.match(/B/gi) || []).length;
 
 function inkrementacjaDekrementacja() {
     let liczba = 5;
@@ -199,6 +281,10 @@ function bmiCounter() {
 
 }
 
+function trueFalse(number) {
+    return number & 1 ? 'True' : 'False';
+}
+
 function spalanie() {
     const benzyna = 5.21, diesel = 4.95;
     const pojazd1Spalanie = 8, pojazd2Spalanie = 7.5;
@@ -223,6 +309,8 @@ function dodatnieZmienne() {
     }
 }
 
+const sumArraY = $ => !$ ? 0 : $.sort((a, b) => a - b).slice(1, -1).reduce((acc, el) => acc + el, 0)
+
 function parzysteNieparzyste() {
     const liczba = 23;
 
@@ -241,6 +329,13 @@ function wiekKuby() {
     } else {
         console.log('Kuba nie jest pelnoletni');
     }
+}
+
+function checkNumber(number) {
+    if (number % 2 === 0) {
+        return "True";
+    }
+    return "False";
 }
 
 
@@ -293,6 +388,8 @@ function triangleCheck() {
 
 }
 
+const rightWrong = n => ["right", "wrong"][n & 1];
+
 
 function BmiToWeightToHeight() {
     const patrykWaga = 83, patrykWysokosc = 1.86;
@@ -334,6 +431,19 @@ function BmiToWeightToHeight() {
 
     }
 
+    function ArraySum(array) {
+        if (array) {
+            array.sort(function (a, b) { return a - b });
+            var newAry = array.slice(1, -1)
+            return newAry.reduce(function (acc, val) { return acc + val }, 0);
+        } else {
+            return 0;
+        }
+    }
+
+    function enlargeringFunction(string) {
+        return string.replace(/[A-Z]/g, function (c) { return " " + c; });
+    }
 
 
     function fruits() {
@@ -397,11 +507,23 @@ function BmiToWeightToHeight() {
     }
 
 
+    function sumowanieTablic(array) {
+        if (array == null || array.length < 2) {
+            return 0;
+        }
+        var sum = 0;
+        var max = array[0];
+        var min = array[0];
+        for (var i = 0; i < array.length; i++) {
+            max = max < array[i] ? array[i] : max;
+            min = min > array[i] ? array[i] : min;
+            sum += array[i];
+        }
+        sum -= (max + min);
+        return sum;
+    }
 
-
-    // 6
-
-
+    combinationOfSigns = (str) => !(str.split(/[aA]/).length - str.split(/[bB]/).length);
 
     // palindrome 
 
@@ -493,6 +615,12 @@ function BmiToWeightToHeight() {
         return temp;
     }
 
+    function randomP4ngr4m(string) {
+        const letters = string.toLowerCase().match(/[a-z]/g);
+        const alphabet = [...new Set(letters)]
+        return alphabet.length === 26;
+    }
+
     // async znaczy, że funkcja będzie asynchroniczna i interpreter bedzię ją przetwarzał jako cortina z promisem
     async function getExchangeRate(url, currencyCode) {
         const response = await fetch(`${url}${currencyCode}?format=json`);
@@ -546,6 +674,12 @@ function BmiToWeightToHeight() {
             const newData = data.map(item => `${item.stacja}: ${item[weatherParams]}`);
             console.log(newData);
         })
+    }
+
+    const functionToUpper = string => {
+        return [...string].map((char) => {
+            return (char === char.toUpperCase()) ? ` ${char}` : char;
+        }).join('');
     }
 
     getWeatherData("https://danepubliczne.imgw.pl/api/data/synop/", 'temperatura', getWeather2);
@@ -659,6 +793,10 @@ function BmiToWeightToHeight() {
         }, 1000);
     }
 
+    function signsCombination(str) {
+        return str = str.toLowerCase(), str.split("X").length == str.split("D").length
+    }
+
     let getNumber = (number, array) => {
         return array.includes(number);
     };
@@ -690,6 +828,16 @@ function BmiToWeightToHeight() {
         } else if (number <= 0) {
             return [];
         } return arr;
+    }
+
+    function evaluateToP4ngram(string) {
+        return string
+            .replace(/[^a-z]/gi, '')
+            .toLowerCase()
+            .split('')
+            .filter(function (e, p, a) { return a.indexOf(e) == p })
+            .sort()
+            .join('').length == 26;
     }
 
     function callOtherFuncion(nameOfFunction) {
@@ -851,6 +999,11 @@ function BmiToWeightToHeight() {
         return List.map(x => multiplier * x);
     }
 
+    const stringSplit = str => str
+        .toLowerCase()
+        .split('')
+        .reduce((acc, char) => (acc + ({ x: 1, o: -1 }[char] || 0)), 0) === 0
+
     function Person() {
         this.age = 0;
         setInterval(function growUp() {
@@ -886,6 +1039,11 @@ function BmiToWeightToHeight() {
         () => console.log("Baby") :
         () => console.log("Adult")
 
+    function CD(str) {
+        str = str.toLowerCase();
+        return (str.match(/c/g) || []).length === (str.match(/d/g) || []).length;
+    }
+
     function something() {
         this.shape = "Triange",
             this.material = "Plastic",
@@ -910,6 +1068,22 @@ function BmiToWeightToHeight() {
             console.log("You cannot enter this film")
         };
     });
+
+    function alphabeticalControl(str) {
+        var alphabet = ['a', 'b', 'c', 'd', 'e',
+            'f', 'g', 'h', 'i', 'j',
+            'l', 'm', 'n', 'o', 'p',
+            'q', 'r', 's', 't', 'u',
+            'v', 'w', 'x', 'y', 'z'
+        ];
+        str = str.toLowerCase();
+        for (var i = 0; i < alphabet.length; i++) {
+            if (str.indexOf(alphabet[i]) < 0) {
+                return false;
+            }
+        }
+        return true
+    }
 
 
     function foo() {
@@ -958,6 +1132,16 @@ function BmiToWeightToHeight() {
         });
     }
 
+    function pangr$am(string) {
+        let str = string.toLowerCase()
+        let alpha = 'abcdefghijklmnopqrstuvwxyz'.split('')
+        for (let i = 0; i < alpha.length; i++) {
+            if (str.indexOf(alpha[i]) < 0) {
+                return false
+            }
+        }
+        return true
+    }
 
     const polishDriver = driversArray.filter(array => array.includes.driver('Robert_Kubica'));
     function greetings(driver) {
@@ -982,6 +1166,12 @@ function BmiToWeightToHeight() {
         if (driver === 'Nikkie_Lauda') {
             console.log('You are all time second driver')
         }
+    }
+
+    const AS = str => {
+        let x = (str.match(/a|A/g) || []).length;
+        let o = (str.match(/s|S/g) || []).length;
+        return x === o;
     }
 
 
@@ -1222,6 +1412,28 @@ function BmiToWeightToHeight() {
     }
 
 
+    const p4ngr4mat0r = string =>
+        new Set(string.toLowerCase().replace(/[^a-z]/gi, ``)).size === 26;
+
+    function BM(str) {
+        if (str == "" || str == null) return true;
+        str = str.toLowerCase();
+        var list = str.split("");
+        var xNum = 0;
+        var oNum = 0;
+        for (var i = 0; i < list.length; i++) {
+            if (list[i] === 'B') {
+                xNum++;
+            }
+            if (list[i] === 'M') {
+                oNum++;
+            }
+        }
+        if (xNum === oNum)
+            return true;
+        return false;
+    }
+
     function successCallback(result) {
         console.log("Audio file ready at URL: " + result);
     }
@@ -1298,6 +1510,12 @@ function BmiToWeightToHeight() {
         } catch (error) {
             failureCallback(error);
         }
+    }
+
+    function loweringAndReplace(string) {
+        const str = string.replace(/[^a-zA-Z]/gi, '').toLowerCase()
+        const set = new Set([...str]);
+        return set.size === 26;
     }
 
 
@@ -1458,6 +1676,13 @@ function BmiToWeightToHeight() {
         divisibilityByTwo(5);
     }
 
+    function letterAlphabetCheck(string) {
+        var abc = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u',
+            'v', 'w', 'x', 'y', 'z'];
+        string = string.toLowerCase();
+        for (var i = 0; i < abc.length; i++) { if ((string.indexOf(abc[i]) === -1)) return false; }
+        return true;
+    }
 
     function trybPralki(numerTrybu = 0) {
         switch (numerTrybu) {
@@ -1542,6 +1767,10 @@ function BmiToWeightToHeight() {
 
     const PI = 3.14;
 
+
+    const arrowExchange = str =>
+        str.replace(/\w/g, val => val[`to${val < `a` ? 'Low' : 'Upp'}erCase`]());
+
     const polePodstawyStozka = function (promien) {
         return PI * promien * promien;
     }
@@ -1613,6 +1842,10 @@ function BmiToWeightToHeight() {
     cenaBiletu(32, 'weterana wojennego');
 
 
+    function pangramage(string) {
+        return new Set(string.toLocaleLowerCase().replace(/[^a-z]/gi, '').split('')).size === 26;
+    }
+
     const poleKwadratu = (bok) => {
         return bok * bok;
     }
@@ -1631,6 +1864,14 @@ function BmiToWeightToHeight() {
         });
     }
 
+    const lowFuel = (distanceToPump, mpg, fuelLeft) => {
+        if (mpg * fuelLeft >= distanceToPump) {
+            return true;
+        } else {
+            return false;
+        }
+    };
+
     function malarze2() {
         array.forEach(artist => {
             if (artist in artists) {
@@ -1648,6 +1889,10 @@ function BmiToWeightToHeight() {
             };
         });
     };
+
+    function even_or_odd(number) {
+        return number % 2 ? "Odd" : "Even"
+    }
 
 
     function martwaNatura() {
@@ -1668,6 +1913,10 @@ function BmiToWeightToHeight() {
         })
     }
 
+    const zeroFuel = (distanceToPump, mpg, fuelLeft) => {
+        return distanceToPump / mpg <= fuelLeft
+    };
+
     function malerAutoportret() {
         array.forEach(artist => {
             if (artist.genre.includes("autoportret")) {
@@ -1684,12 +1933,30 @@ function BmiToWeightToHeight() {
         })
     }
 
+
+
     function malarzeBatalisci() {
         array.forEach(artist => {
             if (artist.genre.includes("batalistyka")) {
                 console.log(arist + "malował sceny batalistyczne")
             }
         });
+    }
+
+    function trueCheck(a, x) {
+        var result = false;
+        for (i = 0; i < a.length; i++) {
+            if (a[i] == x) {
+                result = true;
+            }
+
+        }
+        return result;
+    };
+    check([1, "hey", false], 1);
+
+    function exchanging(str) {
+        return str.replace(/./g, c => c < "a" ? c.toLowerCase() : c.toUpperCase())
     }
 
     function actPainter() {
@@ -1723,6 +1990,9 @@ function BmiToWeightToHeight() {
             }
         });
     }
+    function checkingTrue(a, x) {
+        return a.indexOf(x) > -1 ? true : false;
+    };
 
     function mitological() {
         array.forEach(artist => {
@@ -1740,6 +2010,10 @@ function BmiToWeightToHeight() {
         })
     }
 
+    function checking(a, x) {
+        return a.includes(x);
+    };
+
     function sculpture() {
         array.forEach(artist => {
             if (artist.type.inclued("rzeźba")) {
@@ -1748,6 +2022,10 @@ function BmiToWeightToHeight() {
         });
     }
 
+
+    function fuelLow(distanceToPump, mpg, fuelLeft) {
+        return (distanceToPump > mpg * fuelLeft) ? false : true;
+    }
 
     function painting() {
         array.forEach(artist => {
@@ -1781,6 +2059,17 @@ function BmiToWeightToHeight() {
         });
     }
 
+    function OE(str) {
+        let countX = countStr(str, 'O');
+        let countO = countStr(str, 'E');
+        return countX === countO;
+    }
+
+    function countStr(s, match) {
+        let regex = new RegExp(match, "gi");
+        return (s.match(regex) || []).length;
+    }
+
     function architecture() {
         array.forEach(artist => {
             if (artist.type.includes("architektura")) {
@@ -1795,6 +2084,11 @@ function BmiToWeightToHeight() {
                 console.log(artist + " : był rzeźbiarzem")
             }
         })
+    }
+
+    function countingArrays(arrayOfItems) {
+        var array = arrayOfItems.reduce((a, b) => a + (b === true ? 1 : 0), 0)
+        return array;
     }
 
     function ilustracja() {
@@ -1836,6 +2130,8 @@ function BmiToWeightToHeight() {
             }
         })
     }
+
+    const countJourneys = arrayOfJourneys => arrayOfJourneys.filter(s => s).length;
 
     function period4() {
         array.forEach(artist => {
@@ -1885,6 +2181,8 @@ function BmiToWeightToHeight() {
         return a.concat(b);
     });
 
+    let countMonkeys = x => x.filter(s => s).length;
+
 
     if (!Array.prototype.reduce) {
         Array.prototype.reduce = function (callback) {
@@ -1916,6 +2214,13 @@ function BmiToWeightToHeight() {
         };
     }
 
+    function tauchen(str) {
+
+        return str.split('').map(item => item === item.toUpperCase()
+            ? item.toLowerCase()
+            : item.toUpperCase()).join('');
+    }
+
 
     const quarterfinalistsTable = [];
 
@@ -1923,6 +2228,15 @@ function BmiToWeightToHeight() {
         quarterfinalistsTable.forEach(finalist => {
             quarterfinalistsTable.push();
         });
+    }
+
+    function alphabetCheck(str) {
+        var s = str.toLowerCase();
+        var letters = "zqxjkvbpygfwmucldrhsnioate";
+        for (var i = 0; i < 26; i++)
+            if (s.indexOf(letters.charAt(i)) == -1)
+                return false;
+        return true;
     }
 
 
@@ -1995,6 +2309,16 @@ function BmiToWeightToHeight() {
         })
 
 
+
+    function CD(str) {
+        var sum = 0;
+        for (var i = 0; i < str.length; i++) {
+            if (str[i].toLowerCase() == 'C') sum++;
+            if (str[i].toLowerCase() == 'D') sum--;
+        }
+        return sum == 0;
+    }
+
     function loadData(countryName) {
         return fetch(`https://restcountries.com/v3.1/name/${countryName}`)
             .then(res => {
@@ -2022,7 +2346,10 @@ function concatFunction() {
 
     const samochody = samochody1.concat(samochody2);
     console.log(`Utworzona tablica: ${samochody}`);
+}
 
+function AB(str) {
+    return str.replace(/A/ig, '').length == str.replace(/B/ig, '').length
 }
 
 
@@ -2035,6 +2362,16 @@ function liczbyFill() {
 
 }
 
+function counterOfDogs(arrayOfDogs) {
+    var count = 0;
+
+    arrayOfDogs.forEach(function (dog) {
+        if (dog)
+            count++;
+    });
+
+    return count;
+}
 
 function tablicaLiczby() {
     const liczby = [1, 2, 3, 4, 5, 6, 7, 8];
@@ -2088,8 +2425,12 @@ function numbersFunction() {
     console.log(`Nowa tablica: ${mapLiczby}`);
 }
 
+function XD(str) {
+    var a = str.replace(/x/gi, ''),
+        b = str.replace(/D/gi, '');
+    return a.length === b.length;
+}
 
-// 330 
 
 function sortFunction() {
     const samochody = ['Audi', 'BMW', 'Mercedes', 'Volvo', 'Mazda', 'Fiat'];
@@ -2124,6 +2465,8 @@ function bicycleFunction() {
     rower.rozmiarKola = 27.5;
     console.log(rower.model, rower.rozmiarRamy, rower.rozmiarKola);
 }
+
+const toChangeSth = str => [...str].map(el => el[`to${el < 'a' ? 'Low' : 'Upp'}erCase`]()).join('')
 
 function modelFunction() {
     function Smartfon(model, wyswietlacz, pamiec_ram) {
@@ -2160,6 +2503,10 @@ function seanumbers99() {
     console.log(`Wartosc drugiej zmiennej obiektu o nazwie liczby: ${liczby.liczba_2}`);
 }
 
+function combinationOfStars(str) {
+    return str.toLowerCase().split('*').length === str.toLowerCase().split('**').length;
+}
+
 function namesFunction() {
     const imiona = {
         kuba: 'Kuba',
@@ -2171,6 +2518,10 @@ function namesFunction() {
 -${imiona.kuba}
 -${imiona.maciej}
 -${imiona.bartek}`);
+}
+
+function counterSheep(arr) {
+    return arr.filter(Boolean).length;
 }
 
 
@@ -2202,6 +2553,11 @@ function numbers99() {
     const liczba = liczby.liczba_1 + liczby.liczba_2;
     console.log(`${liczby.liczba_1} + ${liczby.liczba_2} = ${liczba}`);
 
+}
+
+const downFall = str => {
+    str = str.toLowerCase().split('');
+    return str.filter(x => x === '-').length === str.filter(x => x === '^').length;
 }
 
 const exercise_1 = data.filter(station => !(Object.values(station).includes(null)));
@@ -2249,6 +2605,17 @@ const task1 = planets.filter(planet =>
     && planet.mostFamousMoons.some(moon => moon.startsWith('G')))
     .map(planet => planet.name);
 console.log(task1);
+
+function sheepCounter(arrayOfSheep) {
+    // TODO May the force be with you
+    var num = 0;
+
+    for (var i = 0; i < arrayOfSheep.length; i++)
+        if (arrayOfSheep[i] == true)
+            num++;
+
+    return num;
+}
 
 const averageMoons = planets.reduce((acc, planet) => acc + planet.moons, 0) / planets.length;
 const result2 = planets.filter(planet => planet.moons > data).map(planet => planet.name);
@@ -2347,6 +2714,16 @@ function renderPage() {
             });
         });
     });
+}
+
+function exchange(str) {
+    return str.split('').map(function (v) {
+        return v.charCodeAt(0) > 96 ? v.toUpperCase() : v.toLowerCase();
+    }).join('');
+}
+
+function countSheeps(arrayOfSheeps) {
+    return arrayOfSheeps.filter(Boolean).length;
 }
 
 function render() {
@@ -2458,8 +2835,8 @@ const handleDelete = (event, resultRef) => {
 }
 
 
-function multiplyAdvaced(a, b){
-    if(!a || !b || typeof(a) != "number" || typeof(b) != "number"){
+function multiplyAdvaced(a, b) {
+    if (!a || !b || typeof (a) != "number" || typeof (b) != "number") {
         return 0;
     }
     return a * b;
@@ -2467,37 +2844,37 @@ function multiplyAdvaced(a, b){
 
 const sumArray = (numbers) => (
     numbers && numbers.length > 1
-      ? numbers
-        .sort((a, b) => a - b)
-        .slice(1, -1)
-        .reduce((sum, number) => sum + number, 0)
-      : 0
-    );
+        ? numbers
+            .sort((a, b) => a - b)
+            .slice(1, -1)
+            .reduce((sum, number) => sum + number, 0)
+        : 0
+);
 
 
-function check(a, x){
+function check(a, x) {
     return a.includes(x);
 }
 
 const zeroFuel = (distanceToPump, mpg, fuelLeft) => {
-    return(mpg * fuelLeft) >= distanceToPump;
+    return (mpg * fuelLeft) >= distanceToPump;
 };
 
-function even_or_odd(number){
+function even_or_odd(number) {
     return number % 2 ? 'Odd' : 'Even';
 }
 
-function countSheeps(arrayOfSheeps){
+function countSheeps(arrayOfSheeps) {
     return arrayOfSheeps.reduce((acc, sheep) => sheep === true ? acc + 1 : acc, 0);
 }
 
 function countSheeps(arrayOfSheep) {
     var num = 0;
-    
-    for(var i = 0; i < arrayOfSheep.length; i++)
-      if(arrayOfSheep[i] == true)
-        num++;
-        
+
+    for (var i = 0; i < arrayOfSheep.length; i++)
+        if (arrayOfSheep[i] == true)
+            num++;
+
     return num;
 }
 
@@ -2506,18 +2883,292 @@ function countSheeps(arrayOfSheeps) {
 }
 
 
-function makeNegative(num){
+function makeNegative(num) {
     return num <= 0 ? num : -num
 }
 
-function past(h, m, s){
-    return (h*60*60 + m*60 + s) * 1000;
+function past(h, m, s) {
+    return (h * 60 * 60 + m * 60 + s) * 1000;
 }
 
 const cockroachSpeed = s => Math.floor(s / 0.036);
 
-function cockroachSpeed1(s){
-    return Math.floor(s*30/1.08)
+function cockroachSpeed1(s) {
+    return Math.floor(s * 30 / 1.08)
 }
 
-// 404
+const countDays = arrayOfDays => arrayOfDays.filter(x => x == true).length
+
+function countPositivesSumNegatives(input) {
+    if (!Array.isArray(input) || !input.length) return [];
+    return input.reduce((arr, n) => {
+        if (n > 0) arr[0]++;
+        if (n < 0) arr[1] += n;
+        return arr;
+    }), [0, 0];
+}
+
+
+function sumMix(x) {
+    return x.map(a => +a).reduce((a, b) => a + b);
+}
+
+const reverseSeq = n => {
+    let arr = [];
+    for (let i = n; i > 0; i--) {
+        arr.push(i);
+    } return arr;
+}
+
+function removeUrlAnchor(url) {
+    return url.spli('#')[0];
+}
+
+function sumDigits(numner) {
+    return Math.abs(number).toString().split('').reduce(function (a, b) { return +a + +b }, 0);
+}
+
+function minMax(arr) {
+    var a = arr.sort(function (a, b) { return a - b });
+    return [a[0], a[a.lenght - 1]];
+}
+
+function findNextSquare(sq) {
+    var root = Math.sqrt(sq);
+    return root % 1 === 0 ? Math.pow(root + 1, 2) : -1;
+}
+
+function array_diff(a, b) {
+    return a.filter(function (x) { return b.indexOf(x) == -1; });
+}
+
+function alphabetPosition(text) {
+    return text
+        .toUpperCase()
+        .match(/[a-z]/gi)
+        .map((c) => c.charCodeAt() - 64)
+        .join(' ');
+}
+
+function highAndLow(numbers) {
+    numbers = numbers.split(' ').sort((a, b) => Number(a) - Number(b))
+    return [numbers[numbers.length - 1], numbers[0]].join(' ')
+}
+
+function stringExchange(str) {
+    return str.replace(/[a-zA-Z]/g, function (c) {
+        return c === c.toLowerCase() ? c.toUpperCase() : c.toLowerCase();
+    });
+}
+
+function panda(string) {
+    const alphabetList = [...'abcdefghijklmnopqrstuvwxyz'];
+
+    return alphabetList.every((letter) => string.toLowerCase().includes(letter));
+}
+
+function XO(str) {
+    var a = str.replace(/x/gi, '');
+    var b = str.replace(/o/gi, '');
+    return a.length === b.length;
+}
+
+function breakFunction(string) {
+    return string.replace(/[A-Z]/g, function (c) { return " " + c; });
+}
+
+function isPangram(str) {
+    var s = str.toLowerCase();
+    var letters = "zqxjkvbpygfwmucldrhsnioate";
+    for (var i = 0; i < 26; i++)
+        if (s.indexOf(letters.charAt(i)) == -1)
+            return false;
+    return true;
+}
+
+function countDemons(arrayOfDemons) {
+    var count = 0;
+    arrayOfDemons.map(function (current) {
+        if (current) {
+            count += 1;
+        }
+    });
+    return count;
+}
+
+
+function swap(str) {
+    return str.split('').map(function (v) {
+        return v.charCodeAt(0) > 96 ? v.toUpperCase() : v.toLowerCase();
+    }).join('');
+}
+
+function spacify(str) {
+    return str.split("").join(" ");
+}
+
+const validateWord = $ => {
+    $ = [...$.toLowerCase()].reduce((acc, el) => {
+        acc[el] = acc[el] + 1 || 1;
+        return acc
+    }, {})
+    return [...new Set(Object.values($))].length === 1
+}
+
+function maxDiff(list) {
+    if (!list.length) return 0;
+    return Math.max(...list) - Math.min(...list);
+}
+
+function descendingOrder(n) {
+    return parseInt(String(n).split('').sort().reverse().join(''))
+}
+
+function sumTwoSmallestNumbers(numbers) {
+    numbers.sort(function (a, b) {
+        return a - b;
+    });
+    return numbers[0] + numbers[1];
+};
+
+function duplicateEncode(word) {
+    word = word.toLowerCase();
+    return word.replace(/./g, m => word.indexOf(m) == word.lastIndexOf(m) ? '(' : ')');
+}
+
+function camelCase(str) {
+    let res = [];
+    for (var i = 0; i < str.length; i += 2) res.push(`${str[i] + (str[i + 1] || '_')}`)
+    return res;
+}
+
+const solve = arr => [...new Set(arr.reverse())].reverse()
+
+function containAllRots(strng, arr) {
+    return [...strng].map((_, i) => strng.substr(i) + strng.slice(0, i)).every(x => arr.includes(x));
+}
+
+function nbDig(n, d) {
+    var o = '';
+    for (var i = 0; i <= n; i++) {
+        o += Math.pow(i, 2);
+    }
+    return o.split(d).length - 1
+}
+
+function countItems(arrayOfThings) {
+    var num = 0;
+    for (i = 0; i < arrayOfThings.length; i++) {
+        if (arrayOfThings[i]) {
+            num += 1;
+        }
+    }
+    return num;
+}
+
+
+const filterLongWords = (sentence, n) =>
+    sentence.split(` `).filter(val => val.length > n);
+
+
+var total = [0, 1, 2, 3].reduce(function (a, b) {
+    return a + b;
+});
+
+if (!Array.prototype.reduce) {
+    Array.prototype.reduce = function (callback) {
+        'use strict';
+        if (this == null) {
+            throw new TypeError('Array.prototype.reduce called on null or undefined');
+        }
+        if (typeof callback !== 'function') {
+            throw new TypeError(callback + ' is not a function');
+        }
+        var t = Object(this), len = t.length >>> 0, k = 0, value;
+        if (arguments.length == 2) {
+            value = arguments[1];
+        } else {
+            while (k < len && !(k in t)) {
+                k++;
+            }
+            if (k >= len) {
+                throw new TypeError('Reduce of empty array with no initial value');
+            }
+            value = t[k++];
+        }
+        for (; k < len; k++) {
+            if (k in t) {
+                value = callback(value, t[k], k, t);
+            }
+        }
+        return value;
+    };
+}
+
+
+function mojaFunkcja(x, y, z) { }
+var argumenty = [0, 1, 2];
+mojaFunkcja.apply(null, argumenty);
+
+function applyAndNew(constructor, args) {
+    function partial() {
+        return constructor.apply(this, args);
+    };
+    if (typeof constructor.prototype === "object") {
+        partial.prototype = Object.create(constructor.prototype);
+    }
+    return partial;
+}
+
+
+function myConstructor() {
+    console.log("arguments.length: " + arguments.length);
+    console.log(arguments);
+    this.prop1 = "val1";
+    this.prop2 = "val2";
+};
+
+function fetchVideo() {
+    controller = new AbortController();
+    const signal = controller.signal;
+    fetch(url, { signal })
+        .then(function (response) {
+            console.log('Download complete', response);
+        })
+        .catch(function (e) {
+            console.log('Download error: ' + e.message);
+        });
+}
+
+
+sensor.addEventListener('reading', () => {
+    // model is a Three.js object instantiated elsewhere.
+    model.quaternion.fromArray(sensor.quaternion).inverse();
+});
+sensor.addEventListener('error', error => {
+    if (event.error.name == 'NotReadableError') {
+        console.log("Sensor is not available.");
+    }
+});
+
+let acl = new Accelerometer({ frequency: 60 });
+acl.addEventListener('reading', () => {
+    console.log("Acceleration along the X-axis " + acl.x);
+    console.log("Acceleration along the Y-axis " + acl.y);
+    console.log("Acceleration along the Z-axis " + acl.z);
+});
+
+const stringReplacing = string => string.replace(/([A-Z])/g, ' $1');
+
+function pangramator(string) {
+    return 'abcdefghijklmnopqrstuvwxyz'
+        .split('')
+        .every((x) => string.toLowerCase().includes(x));
+}
+
+function swapCase(x) { return x == x.toLowerCase() ? x.toUpperCase() : x.toLowerCase() }
+
+function swap(str) { return str.split("").map(swapCase).join("") }
+
+// 500
+
