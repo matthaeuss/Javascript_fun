@@ -199,3 +199,26 @@ current w versionowaniu !!!
 4. Interface segregation 
 5. Dependency inversion
 
+
+## THIS
+- a functionality this refers the execution context for that call, determined entirely by how the function was called. 
+
+
+## NEW KEYWORD
+1. Creates a brand new empty object.
+2. Link that new object with another object.
+3. Call function with "this" set to the new object.
+4. If function does not return an object, assume returning "this".
+
+## THIS PRECEDENCE
+1. If the function is called by 'new'
+2. If the function is called by 'call()' or 'apply()' (bind() uses apply())
+3. If the function called on a context objet?
+4. DEFAULT: global object (except strict mode)
+
+## ARROW FUNCTION 'THIS' => arrow function does not have 'this(lexical this) 
+- lexical odnośi się do zasięgu tzn, że zostanie pobrany według zasad, które obowiązują wszystkie zmienne 
+- arrow function does not create context 
+- does not have arguments, super, new.target
+
+
