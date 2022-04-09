@@ -3170,5 +3170,229 @@ function swapCase(x) { return x == x.toLowerCase() ? x.toUpperCase() : x.toLower
 
 function swap(str) { return str.split("").map(swapCase).join("") }
 
-// 500
 
+var min = function (list) {
+    return Math.min(...list);
+}
+var max = function (list) {
+    return Math.max(...list);
+}
+
+function findDifference(a, b) {
+    let getA = a.reduce((a, b) => a * b)
+    let getB = b.reduce((a, b) => a * b)
+
+    return Math.abs(getA - getB)
+
+}
+
+function mergeArrays(arr1, arr2) {
+    let newArr = arr1.concat(arr2)
+    return [...new Set(newArr)].sort((a, b) => a - b)
+}
+
+function calculateAge(birth, year) {
+    if (birth - year === 1) {
+        return `You will be born in 1 year.`
+    } else if (birth - year > 1) {
+        return `You will be born in ${Math.abs(year - birth)} years.`
+    } else if (year - birth === 1) {
+        return `You are 1 year old.`
+    } else if (year - birth > 1) {
+        return `You are ${year - birth} years old.`
+    } else if (year - birth === 0) {
+        return `You were born this very year!`
+    }
+
+}
+
+function getPlanetName(id) {
+    var name;
+    switch (id) {
+
+        case 1:
+            return 'Mercury'
+
+        case 2:
+            return 'Venus'
+
+        case 3:
+            return 'Earth'
+
+        case 4:
+            return 'Mars'
+
+        case 5:
+            return 'Jupiter'
+
+        case 6:
+            return 'Saturn'
+
+        case 7:
+            return 'Uranus'
+
+        case 8:
+            return 'Neptune'
+
+    }
+
+    return name;
+}
+
+function testEven(n) {
+    return (n % 2 == 0) ? true : false
+}
+testEven(1)
+
+function solution(a, b) {
+    return (b.length > a.length) ? `${a}${b}${a}` : `${b}${a}${b}`
+}
+
+function move(pos, roll) {
+    return pos + roll * 2
+}
+
+function setAlarm(emp, vac) {
+    return (emp == true && vac == false) ? true : false
+}
+
+function checkForFactor(base, factor) {
+    return (base % factor === 0) ? true : false
+}
+checkForFactor(653, 7)
+
+
+function unusualFive() {
+    return ['a', 'a', 'a', 'a', 'a'].length
+}
+
+function getRealFloor(n) {
+
+    if (n <= 0) {
+        return n
+    } else if (n < 13) {
+        return n - 1
+    } else if (n > 13) {
+        return n - 2
+    }
+}
+
+function sumStr(a, b) {
+    return (Number(a) + Number(b)).toString()
+}
+
+function powersOfTwo(n) {
+    var result = [];
+    for (var i = 0; i <= n; i++) {
+        result.push(Math.pow(2, i));
+    }
+    return result;
+}
+
+
+function well(test) {
+
+    let num = test.filter(a => a == 'good').length
+
+    if (num > 0 && num <= 2) {
+        return 'Publish!'
+    } else if (num > 2) {
+        return 'I smell a series!'
+    } else {
+        return 'Fail!'
+    }
+
+}
+
+function pipeFix(num) {
+
+    let arr = []
+    let stop = num.pop()
+
+    if (num == false) {
+        return [2]
+    } else {
+        for (let i = num[0]; i <= stop; i++) {
+            arr.push(i)
+        }
+        return arr
+    }
+}
+
+function updateLight(cur) {
+
+    if (cur == 'green') {
+        return 'yellow'
+    } else if (cur == 'yellow') {
+        return 'red'
+    } else if (cur == 'red') {
+        return 'green'
+    }
+
+}
+
+
+function combat(health, damage) {
+    return (health - damage < 0) ? 0 : health - damage
+}
+
+
+function mouthSize(animal) {
+    return (animal.toLowerCase() === 'alligator') ? "small" : "wide"
+}
+
+function generateRange(min, max, step) {
+
+    let arr = []
+
+    for (i = min; i <= max; i += step) {
+        arr.push(i)
+    }
+
+    return arr
+
+}
+
+
+String.prototype.isUpperCase = function () {
+
+    return this
+        .split('')
+        .map(a => (a == a.toUpperCase()) ? true : false)
+        .includes(false) ? false : true
+
+}
+
+function index(arr, n) {
+    return (arr.length <= n) ? -1 : Math.pow(arr[n], n)
+}
+
+function removeEveryOther(arr) {
+    return arr.filter((a, i) => i % 2 == 0)
+}
+
+function strCount(str, letter) {
+    return str.split('').filter(a => a == letter).length
+}
+
+function twoSort(s) {
+    return s.sort().shift().split('').map(a => a + '***').join('').slice(0, -3)
+}
+
+var find = function (string, array) {
+    return (array.includes(string)) ? true : false
+};
+
+function hero(bullets, dragons) {
+    return (bullets >= dragons * 2) ? true : false
+}
+
+function DNAtoRNA(dna) {
+    return dna.split('').map(a => a.replace('T', 'U')).join('')
+}
+
+function twiceAsOld(dadYearsOld, sonYearsOld) {
+    return Math.abs((sonYearsOld * 2) - dadYearsOld)
+}
+
+// 530
