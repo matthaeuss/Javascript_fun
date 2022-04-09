@@ -3223,11 +3223,13 @@ function camelCase(str) {
 const solve = arr => [...new Set(arr.reverse())].reverse()
 // console.log(solve([1, 2, 3, 4, 5]))
 
-
+// 453
 function containAllRots(strng, arr) {
     return [...strng].map((_, i) => strng.substr(i) + strng.slice(0, i)).every(x => arr.includes(x));
 }
+// console.log(containAllRots('ala ma kota', []))
 
+// 454
 function nbDig(n, d) {
     var o = '';
     for (var i = 0; i <= n; i++) {
@@ -3235,7 +3237,9 @@ function nbDig(n, d) {
     }
     return o.split(d).length - 1
 }
+// console log(nbDig(2, 4))
 
+// 455
 function countItems(arrayOfThings) {
     var num = 0;
     for (i = 0; i < arrayOfThings.length; i++) {
@@ -3245,19 +3249,23 @@ function countItems(arrayOfThings) {
     }
     return num;
 }
+// console.log(countItems([1, 10, 22, 54, 42]))
 
-
+// 456
 const filterLongWords = (sentence, n) =>
     sentence.split(` `).filter(val => val.length > n);
+// console.log(filterLongWords('zdanie ze słowami', 10))
 
-
+// 457
 var total = [0, 1, 2, 3].reduce(function (a, b) {
     return a + b;
 });
+// console.log(total)
 
+// 458
 if (!Array.prototype.reduce) {
     Array.prototype.reduce = function (callback) {
-        'use strict';
+        // 'use strict';
         if (this == null) {
             throw new TypeError('Array.prototype.reduce called on null or undefined');
         }
@@ -3285,11 +3293,12 @@ if (!Array.prototype.reduce) {
     };
 }
 
-
+// 459
 function mojaFunkcja(x, y, z) { }
 var argumenty = [0, 1, 2];
-mojaFunkcja.apply(null, argumenty);
+//console.log(mojaFunkcja.apply(null, argumenty));
 
+// 460
 function applyAndNew(constructor, args) {
     function partial() {
         return constructor.apply(this, args);
@@ -3300,14 +3309,15 @@ function applyAndNew(constructor, args) {
     return partial;
 }
 
-
+// 461
 function myConstructor() {
-    console.log("arguments.length: " + arguments.length);
-    console.log(arguments);
+    //console.log("arguments.length: " + arguments.length);
+    //console.log(arguments);
     this.prop1 = "val1";
     this.prop2 = "val2";
 };
 
+// 462
 function fetchVideo() {
     controller = new AbortController();
     const signal = controller.signal;
@@ -3319,45 +3329,23 @@ function fetchVideo() {
             console.log('Download error: ' + e.message);
         });
 }
-
-
-sensor.addEventListener('reading', () => {
-    // model is a Three.js object instantiated elsewhere.
-    model.quaternion.fromArray(sensor.quaternion).inverse();
-});
-sensor.addEventListener('error', error => {
-    if (event.error.name == 'NotReadableError') {
-        console.log("Sensor is not available.");
-    }
-});
-
-let acl = new Accelerometer({ frequency: 60 });
-acl.addEventListener('reading', () => {
-    console.log("Acceleration along the X-axis " + acl.x);
-    console.log("Acceleration along the Y-axis " + acl.y);
-    console.log("Acceleration along the Z-axis " + acl.z);
-});
-
+// 463
 const stringReplacing = string => string.replace(/([A-Z])/g, ' $1');
+// console.log(stringReplacing('Dawid ma kanape w pokoju'))
 
-function pangramator(string) {
-    return 'abcdefghijklmnopqrstuvwxyz'
-        .split('')
-        .every((x) => string.toLowerCase().includes(x));
-}
-
-function swapCase(x) { return x == x.toLowerCase() ? x.toUpperCase() : x.toLowerCase() }
-
-function swap(str) { return str.split("").map(swapCase).join("") }
-
-
+// 464
 var min = function (list) {
     return Math.min(...list);
 }
+// console.log(min([10, 9, 8, 7, 6]))
+
+// 465
 var max = function (list) {
     return Math.max(...list);
 }
+// console.log(max([10, 9, 8, 7, 6]))
 
+// 466
 function findDifference(a, b) {
     let getA = a.reduce((a, b) => a * b)
     let getB = b.reduce((a, b) => a * b)
@@ -3365,12 +3353,16 @@ function findDifference(a, b) {
     return Math.abs(getA - getB)
 
 }
+// console.log(findDifference(10, 20))
 
+// 467
 function mergeArrays(arr1, arr2) {
     let newArr = arr1.concat(arr2)
     return [...new Set(newArr)].sort((a, b) => a - b)
 }
+// console.log([1, 2, 3], [4, 5, 6])
 
+// 468
 function calculateAge(birth, year) {
     if (birth - year === 1) {
         return `You will be born in 1 year.`
@@ -3383,9 +3375,10 @@ function calculateAge(birth, year) {
     } else if (year - birth === 0) {
         return `You were born this very year!`
     }
-
 }
+// console.log(calculateAge(1998, 2022))
 
+// 469
 function getPlanetName(id) {
     var name;
     switch (id) {
@@ -3418,34 +3411,43 @@ function getPlanetName(id) {
 
     return name;
 }
+// console.log(getPlanetName(5))
 
+// 470
 function testEven(n) {
     return (n % 2 == 0) ? true : false
 }
-testEven(1)
+//console.log(testEven(1));
 
+// 471
 function solution(a, b) {
     return (b.length > a.length) ? `${a}${b}${a}` : `${b}${a}${b}`
 }
+// console.log(solution(10, 20))
 
+// 472
 function move(pos, roll) {
     return pos + roll * 2
 }
+// console.log(move(10, 2))
 
 function setAlarm(emp, vac) {
     return (emp == true && vac == false) ? true : false
 }
 
+//473
 function checkForFactor(base, factor) {
     return (base % factor === 0) ? true : false
 }
-checkForFactor(653, 7)
+//console.log(checkForFactor(653, 7));
 
-
+// 474
 function unusualFive() {
     return ['a', 'a', 'a', 'a', 'a'].length
 }
+// console.log(unusualFive())
 
+// 475
 function getRealFloor(n) {
 
     if (n <= 0) {
@@ -3457,10 +3459,16 @@ function getRealFloor(n) {
     }
 }
 
+// console.log(getRealFloor(10))
+
+
+// 476
 function sumStr(a, b) {
     return (Number(a) + Number(b)).toString()
 }
+// console.log(sumStr(10, 20))
 
+// 477
 function powersOfTwo(n) {
     var result = [];
     for (var i = 0; i <= n; i++) {
@@ -3468,8 +3476,10 @@ function powersOfTwo(n) {
     }
     return result;
 }
+// console.log(powersOfTwo(10))
 
 
+// 478
 function well(test) {
 
     let num = test.filter(a => a == 'good').length
@@ -3481,9 +3491,11 @@ function well(test) {
     } else {
         return 'Fail!'
     }
-
 }
+// console.log(well(42))
 
+
+// 479
 function pipeFix(num) {
 
     let arr = []
@@ -3498,7 +3510,9 @@ function pipeFix(num) {
         return arr
     }
 }
+// console.log(pipeFix(24))
 
+// 480
 function updateLight(cur) {
 
     if (cur == 'green') {
@@ -3510,17 +3524,21 @@ function updateLight(cur) {
     }
 
 }
+// console.log(updateLight('green'))
 
-
+// 481
 function combat(health, damage) {
     return (health - damage < 0) ? 0 : health - damage
 }
+// console.log(combat(99, 20))
 
-
+// 482
 function mouthSize(animal) {
     return (animal.toLowerCase() === 'alligator') ? "small" : "wide"
 }
+// console.log(mouthSize('Lion'))
 
+// 483
 function generateRange(min, max, step) {
 
     let arr = []
@@ -3528,12 +3546,11 @@ function generateRange(min, max, step) {
     for (i = min; i <= max; i += step) {
         arr.push(i)
     }
-
     return arr
-
 }
+// console.log(generateRange(10, 5, 2))
 
-
+// 484
 String.prototype.isUpperCase = function () {
 
     return this
@@ -3542,37 +3559,158 @@ String.prototype.isUpperCase = function () {
         .includes(false) ? false : true
 
 }
+// console.log()
 
+// 485
 function index(arr, n) {
     return (arr.length <= n) ? -1 : Math.pow(arr[n], n)
 }
+// console.log(index([1, 2, 3, 4], 5))
 
+// 486
 function removeEveryOther(arr) {
     return arr.filter((a, i) => i % 2 == 0)
 }
+// console.log(removeEveryOther([25, 67, 82, 22]))
 
+// 487
 function strCount(str, letter) {
     return str.split('').filter(a => a == letter).length
 }
+// console.log(strCount('Ala ma kota', 'K'))
 
+// 488
 function twoSort(s) {
     return s.sort().shift().split('').map(a => a + '***').join('').slice(0, -3)
 }
+// console.log(twoSort('Mowilem to juz wczesniej'))
 
+// 489
 var find = function (string, array) {
     return (array.includes(string)) ? true : false
 };
+// console.log(find('Duzo wczesniej', 's'))
 
+// 490
 function hero(bullets, dragons) {
     return (bullets >= dragons * 2) ? true : false
 }
+// console.log(20, 10);
 
+// 491
 function DNAtoRNA(dna) {
     return dna.split('').map(a => a.replace('T', 'U')).join('')
 }
+// console.log(DNAtoRNA())
 
+// 492
 function twiceAsOld(dadYearsOld, sonYearsOld) {
     return Math.abs((sonYearsOld * 2) - dadYearsOld)
 }
+// console.log(twiceAsOld(45, 20))
 
-// 530
+// 493
+function replace(str) {
+    return str.replace(/[aeiouAEIOU]/gi, "!")
+}
+// console.log(replace('Magda poszla na ryby'))
+
+// 494
+function feast(beast, dish) {
+    let beastL = beast.split('').pop()
+    let dishL = dish.split('').pop()
+    return (beast[0] == dish[0] && beastL == dishL) ? true : false
+}
+
+// console.log(feast('beast', 'dish'))
+
+// 495
+const quarterOf = (month) => {
+
+    switch (month) {
+        case 1:
+        case 2:
+        case 3:
+            return 1;
+            break;
+
+        case 4:
+        case 5:
+        case 6:
+            return 2;
+            break;
+
+        case 7:
+        case 8:
+        case 9:
+            return 3;
+            break;
+        case 10:
+        case 11:
+        case 12:
+            return 4;
+            break;
+
+        default:
+            return 'not sure';
+
+    }
+
+}
+// console.log(quarterOf(1));
+
+// 496 
+function howMuchILoveYou(n) {
+    let arr = ['I love you',
+        'a little',
+        'a lot',
+        'passionately',
+        'madly',
+        'not at all']
+
+
+    return (n % 6 == 0) ? 'not at all' : arr[n % 6 - 1]
+}
+
+// console.log(howMuchILoveYou(6));
+
+// 497 
+
+function getGrade(s1, s2, s3) {
+    let arr = []
+    arr.push(s1, s2, s3)
+    let score = arr.reduce((a, b) => a + b) / 3
+
+    switch (true) {
+        case 90 <= score: return 'A'
+        case 80 <= score: return 'B'
+        case 70 <= score: return 'C'
+        case 60 <= score: return 'D'
+        case 0 <= score: return 'F'
+    }
+}
+// console.log(getGrade(4, 4, 3));
+
+// 498
+function countBy(x, n) {
+    arr = []
+    for (i = x; i <= x * n; i += x) {
+        arr.push(i)
+    }
+    return arr
+}
+
+// console.log(countBy(10, 15));
+
+// 499 
+function isDivideBy(num, a, b) {
+    return (num % a == 0 && num % b == 0) ? true : false
+}
+// console.log(isDivideBy(20, 10, 20))
+
+// 500 
+
+function fakeBin(num) {
+    return num.split('').map(a => (a >= 5) ? '1' : '0').join('')
+}
+// console.log(fakeBin(42));
